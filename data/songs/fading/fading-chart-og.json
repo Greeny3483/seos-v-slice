@@ -1,8 +1,8 @@
 {
   "version": "2.0.0",
   "scrollSpeed": {
-    "default": 1.5,
-    "og": 1.5
+    "og": 1.5,
+    "default": 1.5
   },
   "events": [
     {
@@ -55,12 +55,12 @@
 }
     },
     {
-      "t": 37080,
+      "t": 36975,
       "e": "PlayAnimation",
       "v": {
-	"target": "dad",
+	"anim": "goodbye",
 	"force": true,
-	"anim": "goodbye"
+	"target": "dad"
 }
     }
   ],
@@ -766,7 +766,8 @@
         "k": "og",
         "p": [        ]
       }
-    ]
+    ],
+    "hard": [    ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.5.1"
+  "generatedBy": "Friday Night Funkin' - v0.6.4"
 }

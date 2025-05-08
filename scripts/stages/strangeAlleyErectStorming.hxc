@@ -170,13 +170,9 @@ class StrangeAlleywayErectStormingStage extends Stage
 		topBorder.visible = false;
 		bottomBorder.visible = false;
 		
-		if (Preferences.downscroll) {
-			game.opponentStrumline.y = game.opponentStrumline.y + 100;
-			game.playerStrumline.y = game.playerStrumline.y + 100;
-		} else {
-			game.opponentStrumline.y = game.opponentStrumline.y - 100;
-			game.playerStrumline.y = game.playerStrumline.y - 100;
-		}
+		game.opponentStrumline.y = opponentStrumlineDefaultYPos;
+		game.playerStrumline.y = playerStrumlineDefaultYPos;
+		
 		game.scoreText.visible = true;
 		game.healthBar.visible = true;
 		game.healthBarBG.visible = true;
@@ -209,7 +205,7 @@ class StrangeAlleywayErectStormingStage extends Stage
 		    * Rather than a random one. */
 	{
 
-		FunkinSound.playOnce(Paths.sound("thunder_1"));
+		FunkinSound.playOnce(Paths.sound("thunder_1")); // The loudest one.
 	
 		game.camCutscene.flash(0xFFFFFFFF, 0.7);
 	
@@ -243,7 +239,7 @@ class StrangeAlleywayErectStormingStage extends Stage
 	{
 		super.onStepHit(event);
 
-		if (event.step == 767 && PlayState.instance.currentSong.id == "release") {
+		if (event.step == 831 && PlayState.instance.currentSong.id == "release") {
 	        forceLightningStrike();
 			doCinematics();
 
@@ -252,7 +248,7 @@ class StrangeAlleywayErectStormingStage extends Stage
 
 		}
 
-		if (event.step == 910 && PlayState.instance.currentSong.id == "release") {
+		if (event.step == 970 && PlayState.instance.currentSong.id == "release") {
 	        forceLightningStrike();
 			destroyCinematics();
 

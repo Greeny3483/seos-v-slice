@@ -15,7 +15,7 @@ import funkin.modding.module.ModuleHandler;
 
 class SplashText extends Module
 {
-  public var garVNUM:String = '3.0.3'; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
+  public var garVNUM:String = '3.1.0'; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
 
   public function new()
   {
