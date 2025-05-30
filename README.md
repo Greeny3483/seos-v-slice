@@ -31,7 +31,7 @@
 1. Drop `garcello v-slice.zip` into your base game's `mods` folder (create one if it doesn't exist).
 2. Extraction is optional.
 
-#### 🎭 For Alternate Icons:
+#### 🎭 For Alternate Icons (OBSOLETE):
 - Extract the mod, then drop the `garcello v-slice` **icons folder** into the extracted `garcello v-slice` directory.
 
 Enjoy the recreation of Smoke 'Em Out Struggle
