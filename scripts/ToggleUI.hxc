@@ -1,0 +1,22 @@
+import flixel.FlxG;
+import funkin.play.PlayState;
+import funkin.modding.module.Module;
+
+class ToggleUI extends Module {
+    /* Vanilla+ Feature
+     * Toggles the visibility of the HUD when F1 is pressed.
+    */
+    public function new() {
+        super("ToggleUI");
+    }
+
+    override function onUpdate(event:UpdateScriptEvent):Void {
+        super.onUpdate(event);
+
+        if (PlayState.instance == null) return;
+
+        if (FlxG.keys.justPressed.F1) {
+            PlayState.instance.camHUD.visible = !PlayState.instance.camHUD.visible;
+        }
+    }
+}

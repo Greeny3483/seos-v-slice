@@ -1,0 +1,19 @@
+{
+	"timeFormat": "ms",
+	"artist": "Requazar",
+	"charter": "Greeny3483",
+	"playData": {
+        "album": "seosErectOST",
+		"stage": "strangeAlleyErectSunset",
+		"noteStyle": "funkin",
+        "difficulties": ["easy", "normal", "hard"],
+		"characters": {"girlfriend": "nene", "opponent": "garcelloghosty", "player": "pico-playable", "instrumental": "pico", "altInstrumentals": []},
+		"ratings": {"easy": 1, "normal": 1, "hard": 2}
+	},
+	"songName": "Fading (Pico Mix)",
+	"timeChanges": [
+		{"t": 0, "bpm": 100}
+	],
+	"generatedBy": "Psych Engine v1.0.4 - Chart Editor V-Slice Exporter",
+	"version": "2.2.3"
+}

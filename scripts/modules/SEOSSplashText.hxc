@@ -1,0 +1,49 @@
+import flixel.FlxObject;
+import flixel.FlxSprite;
+import flixel.FlxState;
+import flixel.FlxG;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.ui.mainmenu.MainMenuState;
+import funkin.play.PlayState;
+import funkin.Paths;
+import funkin.api.newgrounds.NewgroundsClient;
+import funkin.util.ReflectUtil;
+import funkin.util.Constants;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+
+class AnnSplashText extends Module
+{
+  public var garVNUM:String = '3.2.0'; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
+
+  public function new()
+  {
+    super('garSplashText');
+  }
+
+  override function onCreate():Void
+  {
+    super.onCreate();
+    if (ModuleHandler.getModule("annSplashText") != null) {
+      annVer:String = ModuleHandler.getModule("annSplashText").annVNUM
+    }
+  }
+  
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+	  super.onUpdate(event);
+    
+    if (ModuleHandler.getModule("annSplashText") != null) {
+      if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.mainmenu.MainMenuState")
+        {
+          FlxG.state.leftWatermarkText.text = "FRIDAY NIGHT FUNKIN' " + Constants.VERSION + " | HAZY RIVER V-SLICE v (" + garVNUM + "/" + annVer + ")";
+        }
+    } else {
+      if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.mainmenu.MainMenuState")
+        {
+          FlxG.state.leftWatermarkText.text = "FRIDAY NIGHT FUNKIN' " + Constants.VERSION + " | SMOKE 'EM OUT STRUGGLE V-SLICE v" + garVNUM;
+        }
+    }
+  }
+}

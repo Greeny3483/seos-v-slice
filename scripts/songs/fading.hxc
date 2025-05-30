@@ -12,6 +12,8 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import funkin.save.Save;
 import funkin.ui.options.PreferencesMenu;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
 
 import Date;
 
@@ -33,7 +35,7 @@ class FadingSong extends Song {
       return;
     }
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    if (!PlayStatePlaylist.isStoryMode && PlayState.instance.currentVariation != 'pico') hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play cutscene.');
@@ -52,7 +54,8 @@ class FadingSong extends Song {
 	}
 
   function startDialogue() {
-    PlayState.instance.startConversation('fading');
+    var targetDialogue = PlayState.instance.currentVariation == 'pico' ? 'fading-pico' : 'fading';
+    PlayState.instance.startConversation(targetDialogue);
   }
 
   /**
@@ -77,6 +80,11 @@ class FadingSong extends Song {
     PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/dump/icons/" + PlayState.instance.currentChart.characters.opponent + ".png?raw=true?t=" + timeStamp;
 
     hasPlayedCutscene = false;
+
+    var isOg = ModuleHandler.getModule('OG Style').scriptGet('ogstyle');
+    if (PlayState.instance.currentVariation == 'og' && !isOg) {
+      ModuleHandler.getModule('SwappingNotestyles').scriptCall('swapStrumlines', ['funkin']);
+    }
   }
 
 	function onBeatHit(event:SongTimeScriptEvent)

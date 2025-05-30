@@ -6,7 +6,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
-import funkin.audio.FunkinSound;
+import funkin.graphics.FunkinSprite;
 import funkin.Conductor;
 import funkin.graphics.framebuffer.BitmapDataUtil;
 import funkin.graphics.framebuffer.FixedBitmapData;
@@ -35,6 +35,8 @@ class StrangeAlleywayErectSunsetStage extends Stage
 	var colorShaderDad:AdjustColorShader;
 	var colorShaderGf:AdjustColorShader;
 
+	var blackOverlay:FunkinSprite;
+
 
    	function new()
 	{
@@ -43,6 +45,14 @@ class StrangeAlleywayErectSunsetStage extends Stage
     override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
+
+		blackOverlay = FunkinSprite.create(0, 0, 'blackness'); // Make graphics are strange, so I just did this.
+		blackOverlay.alpha = 1;
+		blackOverlay.scale.set(5, 5);
+        blackOverlay.cameras = [PlayState.instance.camCutscene];
+		blackOverlay.scrollFactor.set(0, 0);
+		blackOverlay.alpha = 0;
+		PlayState.instance.add(blackOverlay);
     }
     override function onUpdate(event:UpdateScriptEvent)
 	{
@@ -85,5 +95,19 @@ class StrangeAlleywayErectSunsetStage extends Stage
 	}
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		super.onStepHit(event);
+		if (PlayState.instance.currentSong.id.toLowerCase() == "fading" && PlayState.instance.currentVariation == "pico")
+		{
+			if (event.step == 248)
+			{
+				FlxTween.tween(this.getOpponent(false), {alpha: 0}, 1);
+				FlxTween.tween(PlayState.instance.iconP2, {alpha: 0}, 1);
+				FlxTween.tween(blackOverlay, {alpha: 1}, 1);
+			}
+		}
 	}
 }

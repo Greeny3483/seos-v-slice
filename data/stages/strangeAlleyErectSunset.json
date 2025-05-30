@@ -23,6 +23,16 @@
       "assetPath": "stages/garStageErectSunset",
       "scroll": [1.0, 1.0],
       "animations": []
+    },
+    {
+      "name": "deadgar",
+      "assetPath": "stages/erect/gardead",
+      "position": [-200, 775],
+      "scale": [0.9, 0.9],
+      "scroll": [0.9, 0.9],
+      "zIndex": 599,
+      "animations": [
+      ]
     }
   ],
   "cameraZoom": 0.875,

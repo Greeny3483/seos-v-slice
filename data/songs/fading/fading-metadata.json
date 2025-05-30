@@ -5,7 +5,7 @@
   "charter": "Atsuover + Rageminer",
   "playData": {
     "album": "ostHazyRiver",
-    "songVariations": ["og"],
+    "songVariations": ["og", "pico"],
     "difficulties": [
       "easy",
       "normal",
@@ -16,7 +16,7 @@
       "girlfriend": "gf",
       "opponent": "garcelloghosty",
       "instrumental": "",
-      "altInstrumentals": ["og"]
+      "altInstrumentals": ["og", "pico"]
     },
     "stage": "strangeAlleyMorning",
     "noteStyle": "funkin",

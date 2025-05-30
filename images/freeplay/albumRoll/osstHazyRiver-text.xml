@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="hazyRiver-text.png">
+<SubTexture name="idle000" x="0" y="0" width="330" height="150" frameX="-2" frameY="-2" frameWidth="333" frameHeight="155" />
+<SubTexture name="switch0001" x="330" y="0" width="331" height="150" frameX="-2" frameY="-2" frameWidth="333" frameHeight="155" />
+<SubTexture name="switch0002" x="330" y="0" width="331" height="150" frameX="-2" frameY="-2" frameWidth="333" frameHeight="155" />
+<SubTexture name="switch0003" x="330" y="0" width="331" height="150" frameX="-2" frameY="-2" frameWidth="333" frameHeight="155" />
+<SubTexture name="switch0004" x="330" y="0" width="331" height="150" frameX="-2" frameY="-2" frameWidth="333" frameHeight="155" />
+</TextureAtlas>

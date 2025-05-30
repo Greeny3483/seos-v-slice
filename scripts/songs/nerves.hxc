@@ -12,7 +12,8 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import funkin.ui.options.PreferencesMenu;
 import funkin.save.Save;
-
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
 import Date;
 
 class NervesSong extends Song {
@@ -104,6 +105,11 @@ class NervesSong extends Song {
     PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/dump/icons/" + PlayState.instance.currentChart.characters.opponent + ".png?raw=true?t=" + timeStamp;
 
     hasPlayedCutscene = false;
+
+    var isOg = ModuleHandler.getModule('OG Style').scriptGet('ogstyle');
+    if (PlayState.instance.currentVariation == 'og' && !isOg) {
+      ModuleHandler.getModule('SwappingNotestyles').scriptCall('swapStrumlines', ['funkin']);
+    }
   }
 
 	function onBeatHit(event:SongTimeScriptEvent)

@@ -1,0 +1,115 @@
+import funkin.modding.module.Module;
+import Std;
+import funkin.ui.options.OptionsState;
+import flixel.util.FlxSave;
+import flixel.FlxG;
+import funkin.play.PlayState;
+import Type;
+import funkin.util.ReflectUtil;
+import funkin.util.Constants;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.character.BaseCharacter;
+import funkin.ui.PixelatedIcon;
+import funkin.ui.freeplay.SongMenuItem;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.PlayerSettings;
+
+class SEOSFreeplayIconOption extends Module
+{
+    public var save = null;
+    public var char:BaseCharacter;
+    public var iconStyle:String = "kirbiro"; // default to kirbiro
+    public var enabled:Bool = true;
+
+    function bindSave(){
+        save = new FlxSave();
+        save.bind("freeplayicons", "Greeny3483");
+    }
+
+    function closeSave(){
+        if(save != null)save.close();
+        save = null;
+    }
+
+    function new(){
+        super("Freeplay Icons", 1);
+        bindSave();
+
+        if(save.data.iconStyle == null)
+            save.data.iconStyle = "kirbiro";
+
+        iconStyle = save.data.iconStyle;
+
+        closeSave();
+    }
+
+    public var inOptions:Bool = false;
+
+    override function onStateChangeEnd(event){
+        super.onStateChangeEnd(event);
+        inOptions = false;
+        if(Std.isOfType(event.targetState, OptionsState)){
+            var prefs = event.targetState.optionsCodex.pages.get("preferences");
+            inOptions = true;
+
+            bindSave();
+
+            prefs.createPrefItemEnum("Freeplay Icons", "Switches between different alternative freeplay icon sets. \n Applies to: Garcello.", [
+                "kirbiro" => "kirbiro",
+                "AppleHair" => "AppleHair"
+            ], function(key:String, value:String) {
+                save.data.iconStyle = value;
+                iconStyle = value;
+            }, save.data.iconStyle);
+
+        }else if(inOptions)
+            closeSave();
+    }
+
+    function customDisplay(cap:SongMenuItem){
+        /* Original code by @Comedy Lost
+            *  From Doki Doki Takeover Plus! V-Slice Port
+            *  https://gamebanana.com/mods/513366
+            *  ComedyLost- If you want me to remove this, my discord is @greeny3483
+        */
+        if (cap.pixelIcon.animation.curAnim == null || cap.pixelIcon.animation.curAnim.name == 'idle'){
+            if (cap.freeplayData != null){
+                switch (cap.freeplayData.songCharacter){
+                    case 'garcello':
+                        if (iconStyle == "AppleHair"){
+                            cap.pixelIcon.setCharacter('applehairgarcello');
+                        } else {
+                            cap.pixelIcon.setCharacter('garcello');
+                        }
+                    case 'garcellotired':
+                        if (iconStyle == "AppleHair"){
+                            cap.pixelIcon.setCharacter('applehairgarcellotired');
+                        } else {
+                            cap.pixelIcon.setCharacter('garcellotired');
+                        }
+                    case 'garcellodead':
+                        if (iconStyle == "AppleHair"){
+                            cap.pixelIcon.setCharacter('applehairgarcellodead');
+                        } else {
+                            cap.pixelIcon.setCharacter('garcellodead');
+                        }
+                    case 'garcelloghosty':
+                        if (iconStyle == "AppleHair"){
+                            cap.pixelIcon.setCharacter('applehairgarcelloghosty');
+                        } else {
+                            cap.pixelIcon.setCharacter('garcelloghosty');
+                        }
+                }
+            }   
+        }
+    }
+    override function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+		if (Std.isOfType(FlxG.state.subState, FreeplayState))
+			{
+				for (capsule in FlxG.state.subState.grpCapsules.members){
+					customDisplay(capsule);
+				}	
+			}		
+    }
+}

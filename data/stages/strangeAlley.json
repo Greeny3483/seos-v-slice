@@ -30,18 +30,18 @@
   "characters": {
     "bf": {
       "zIndex": 300,
-      "position": [1030, 920],
+      "position": [1120, 920],
       "cameraOffsets": [-100, -80]
     },
     "dad": {
       "zIndex": 200,
-      "position": [405, 960],
+      "position": [660, 960],
       "cameraOffsets": [-75, -110]
     },
     "gf": {
       "zIndex": 100,
       "cameraOffsets": [0, 0],
-      "position": [650, 830]
+      "position": [800, 850]
     }
   },
   "name": "Strange Alleyway (Night)"

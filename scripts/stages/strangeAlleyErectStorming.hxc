@@ -7,6 +7,8 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.audio.FunkinSound;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
 import funkin.Conductor;
 import funkin.util.Constants;
 import funkin.graphics.framebuffer.BitmapDataUtil;
@@ -25,6 +27,7 @@ import openfl.utils.Assets;
 import funkin.Preferences;
 import flixel.addons.display.FlxTiledSprite;
 import StringTools;
+import Std;
 
 /* Strange Alleyway Storming Stage
  * Contributors: Requazar
@@ -51,6 +54,8 @@ class StrangeAlleywayErectStormingStage extends Stage
 	public var playerStrumlineDefaultYPos:Float = Preferences.downscroll ? FlxG.height - playerStrumline.height - Constants.STRUMLINE_Y_OFFSET : Constants.STRUMLINE_Y_OFFSET;
 	public var opponentStrumlineDefaultYPos:Float = Preferences.downscroll ? FlxG.height - opponentStrumline.height - Constants.STRUMLINE_Y_OFFSET : Constants.STRUMLINE_Y_OFFSET;
 
+   	var cinematicsEnabled:Bool = false; // Renamed from doCinematics
+
    	function new()
 	{
 		super('strangeAlleyErectStorming');
@@ -58,6 +63,9 @@ class StrangeAlleywayErectStormingStage extends Stage
     override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
+
+
+		cinematicsEnabled = ModuleHandler.getModule("Cinematic Events").scriptGet("cinematics");
 		rainShader.scale = FlxG.height / 200;
 
 		game = PlayState.instance;
@@ -147,6 +155,8 @@ class StrangeAlleywayErectStormingStage extends Stage
 
 	function doCinematics():Void {
 
+		if (!cinematicsEnabled) return;
+
 		topBorder.visible = true;
 		bottomBorder.visible = true;
 		
@@ -158,15 +168,13 @@ class StrangeAlleywayErectStormingStage extends Stage
 			game.playerStrumline.y = playerStrumlineDefaultYPos + 100;
 		}
 
-		/*game.opponentStrumline.y = opponentStrumlineDefaultYPos + 100;
-		game.playerStrumline.y = playerStrumlineDefaultYPos + 100;*/
 		game.scoreText.visible = false;
 		game.healthBar.visible = false;
 		game.healthBarBG.visible = false;
 	    game.iconP1.visible = false;
 		game.iconP2.visible = false;
 	}
-	function destroyCinematics():Void { // Only place after doCinematics() has already been called
+	function destroyCinematics():Void {
 		topBorder.visible = false;
 		bottomBorder.visible = false;
 		
@@ -248,7 +256,7 @@ class StrangeAlleywayErectStormingStage extends Stage
 
 		}
 
-		if (event.step == 970 && PlayState.instance.currentSong.id == "release") {
+		if (event.step == 970 && cinematicsEnabled && PlayState.instance.currentSong.id == "release") { // Use the boolean variable
 	        forceLightningStrike();
 			destroyCinematics();
 

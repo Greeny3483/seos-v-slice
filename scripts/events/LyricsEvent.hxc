@@ -44,7 +44,7 @@ class LyricsEvent extends SongEvent
         }
 
         // Modify the "Lyrics" event to add a special design during "Release".
-        if (PlayState.instance != null && PlayState.instance.currentSong.id.toLowerCase() == "release") {
+        if (PlayState.instance != null && PlayState.instance.currentSong.id.toLowerCase() == "release" || PlayState.instance.currentSong.id.toLowerCase() == "nerves") {
             lyrics = new FlxText( 0, 0, 1200, "", 32 );
             lyrics.setFormat(Paths.font("vcr.ttf"), 32, 0xFF03FCAD, 'center', FlxTextBorderStyle.OUTLINE, 0xFF000000 );
             lyrics.zIndex = 50000;

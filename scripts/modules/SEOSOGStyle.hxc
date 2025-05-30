@@ -1,0 +1,66 @@
+import funkin.modding.module.Module;
+import Std;
+import funkin.ui.options.OptionsState;
+import flixel.util.FlxSave;
+import flixel.FlxG;
+import funkin.play.PlayState;
+import Type;
+import funkin.util.ReflectUtil;
+import funkin.util.Constants;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.character.BaseCharacter;
+import funkin.ui.PixelatedIcon;
+import funkin.ui.freeplay.SongMenuItem;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.PlayerSettings;
+
+class SEOSOGStyle extends Module
+{
+    public var save = null;
+    public var char:BaseCharacter;
+    public var ogstyle:Bool = true;
+
+    function bindSave(){
+        save = new FlxSave();
+        save.bind("seosogstyle", "Greeny3483");
+    }
+
+    function closeSave(){
+        if(save != null)save.close();
+        save = null;
+    }
+
+    function new(){
+        super("OG Style", 1);
+        bindSave();
+
+        if(save.data.ogstyle == null)
+            save.data.ogstyle = true;
+
+        ogstyle = save.data.ogstyle;
+
+        closeSave();
+    }
+
+    public var inOptions:Bool = false;
+
+    override function onStateChangeEnd(event){
+        super.onStateChangeEnd(event);
+        inOptions = false;
+        if(Std.isOfType(event.targetState, OptionsState)){
+            trace();
+            //trace(Type.getInstanceFieldsOf(event.targetState));
+            var prefs = event.targetState.optionsCodex.pages.get("preferences");
+            inOptions = true;
+
+            bindSave();
+
+            prefs.createPrefItemCheckbox("OG Style", "Disables the use of Note Splashes and Hold Note Covers/Splashes in certain songs. \nApplies to: Week G (OG)", function(value) {
+                save.data.ogstyle = value;
+                ogstyle = value;
+            }, save.data.ogstyle);
+
+        }else if(inOptions)
+            closeSave();
+    }
+}

@@ -12,19 +12,17 @@ import funkin.play.character.BaseCharacter;
 import funkin.ui.PixelatedIcon;
 import funkin.ui.freeplay.SongMenuItem;
 import funkin.ui.freeplay.FreeplayState;
+import funkin.PlayerSettings;
 
-// This script is a W.I.P, I am working on it.
-// What this script does (should do) is eliminate the need to download AppleHair's freeplay icons separately, and instead allow them to be enabled in the options menu.
-
-class SEOSOptions extends Module
+class SEOSCinematics extends Module
 {
     public var save = null;
     public var char:BaseCharacter;
-    public var enabled:Bool = true;
+    public var cinematics:Bool = true;
 
     function bindSave(){
         save = new FlxSave();
-        save.bind("applehairfreeplayicons", "Greeny3483");
+        save.bind("seoscinematics", "Greeny3483");
     }
 
     function closeSave(){
@@ -32,14 +30,14 @@ class SEOSOptions extends Module
         save = null;
     }
 
-    function new(){
-        super("AppleHair Freeplay Icons", 1);
+    public function new(){
+        super("Cinematic Events", 1);
         bindSave();
 
-        if(save.data.enabled == null)
-            save.data.enabled = true;
+        if(save.data.cinematics == null)
+            save.data.cinematics = true;
 
-        enabled = save.data.enabled;
+        cinematics = save.data.cinematics;
 
         closeSave();
     }
@@ -57,23 +55,12 @@ class SEOSOptions extends Module
 
             bindSave();
 
-            prefs.createPrefItemCheckbox("AppleHair Freeplay Icons", "When enabled, replaces kirbiro's freeplay icons with AppleHair's", function(value) {
-                save.data.enabled = value;
-                enabled = value;
-            }, save.data.enabled);
+            prefs.createPrefItemCheckbox("Cinematic Events", "Toggles the use of custom cinematic events. \n Used in: Release (Pico Mix)", function(value) {
+                save.data.cinematics = value;
+                cinematics = value;
+            }, save.data.cinematics);
 
         }else if(inOptions)
             closeSave();
-    }
-    
-    override function onUpdate():Void {
-        switch (char) {
-            case "garcello":
-                if (enabled) {
-                    PixelatedIcon.instance.setCharacter() = "applehairgarcellopixel";
-                } else {
-                    PixelatedIcon.instance.setCharacter() = "garcellopixel";
-                }
-        }
     }
 }
