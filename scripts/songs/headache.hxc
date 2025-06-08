@@ -152,7 +152,7 @@ class HeadacheSong extends Song {
 
     hasPlayedCutscene = false;
 
-    var isOg = ModuleHandler.getModule('OG Style').scriptGet('ogstyle');
+    var isOg = ModuleHandler.getModule('SEOSOptions').scriptGet('ogstyle');
     if (PlayState.instance.currentVariation == 'og' && !isOg) {
       ModuleHandler.getModule('SwappingNotestyles').scriptCall('swapStrumlines', ['funkin']);
     }

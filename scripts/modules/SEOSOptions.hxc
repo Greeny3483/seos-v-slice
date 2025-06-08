@@ -1,0 +1,160 @@
+import funkin.modding.module.Module;
+import Std;
+import funkin.ui.options.OptionsState;
+import flixel.util.FlxSave;
+import flixel.FlxG;
+import funkin.play.PlayState;
+import Type;
+import funkin.util.ReflectUtil;
+import funkin.util.Constants;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.character.BaseCharacter;
+import funkin.ui.PixelatedIcon;
+import funkin.ui.freeplay.SongMenuItem;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.PlayerSettings;
+import flixel.util.FlxTimer;
+
+class SEOSOptions extends Module
+{
+    /* This should've been done in the first place, instead of having them all separate.
+	    * This module is used to handle the Smoke 'Em Out Struggle options, such as:
+	    * - Freeplay Icon Sets
+		* - OG Style (Mimics pre-0.3.0 Funkin' by removing Note Splashes and Hold Note Covers/Splashes)
+		* - Cinematic Events (Top and bottom black borders, Used in Release Pico Mix)
+	*/
+
+	public var save = null;
+	public var char:BaseCharacter;
+	public var iconStyle:String = "kirbiro";
+	public var ogstyle:Bool = true;
+	public var cinematics:Bool = true;
+	public var enabled:Bool = true;
+	var garID = ["garcello", "garcellotired", "garcellodead", "garcelloghosty"];
+	var curSelected:Int;
+	public var inOptions:Bool = false;
+
+	function bindSave(){
+		save = new FlxSave();
+		save.bind("seosoptions", "Greeny3483");
+	}
+
+	function closeSave(){
+		if(save != null)save.close();
+		save = null;
+	}
+
+	function new(){
+		super("SEOSOptions", 1);
+		bindSave();
+
+		if(save.data.iconStyle == null)
+			save.data.iconStyle = "kirbiro";
+		if(save.data.ogstyle == null)
+			save.data.ogstyle = true;
+		if(save.data.cinematics == null)
+			save.data.cinematics = true;
+
+		iconStyle = save.data.iconStyle;
+		ogstyle = save.data.ogstyle;
+		cinematics = save.data.cinematics;
+
+		closeSave();
+	}
+
+	override function onStateChangeEnd(event){
+		super.onStateChangeEnd(event);
+		inOptions = false;
+		if(Std.isOfType(event.targetState, OptionsState)){
+			var prefs = event.targetState.optionsCodex.pages.get("preferences");
+			inOptions = true;
+			bindSave();
+
+            prefs.items.createItem(120, 120 * prefs.items.length + 30, "Smoke Em Out Struggle:", "bold", () -> false); // Separate options from the default preferences.
+			prefs.preferenceDesc.push(""); // Prevent null errors.
+
+			prefs.createPrefItemEnum("Freeplay Icon Set", "Switches between different alternative freeplay icon sets. \n Applies to: Garcello.", [
+				"kirbiro" => "kirbiro",
+				"AppleHair" => "AppleHair"
+			], function(key:String, value:String) {
+				save.data.iconStyle = value;
+				iconStyle = value;
+			}, save.data.iconStyle);
+
+			prefs.createPrefItemCheckbox("OG Style", "Disables the use of Note Splashes and Hold Note Covers/Splashes in certain songs. \nApplies to: Week G (OG)", function(value) {
+				save.data.ogstyle = value;
+				ogstyle = value;
+			}, save.data.ogstyle);
+
+			prefs.createPrefItemCheckbox("Cinematic Events", "Toggles the use of custom cinematic events. \n Used in: Release (Pico Mix)", function(value) {
+				save.data.cinematics = value;
+				cinematics = value;
+			}, save.data.cinematics);
+
+		}else if(inOptions)
+			closeSave();
+	}
+
+	override function onSubStateOpenEnd(event) {
+		super.onSubStateOpenEnd(event);
+		if (Std.isOfType(event.targetState, FreeplayState)) {
+			var state = event.targetState;
+			var reset = function () {
+				new FlxTimer().start(0.11, _ -> {
+					curSelected = 0;
+				});
+			}
+			for (capsule in event.targetState.grpCapsules.members){
+				if (capsule?.freeplayData != null) {
+					if (garID.contains(capsule.freeplayData.songCharacter)){
+						customDisplay(capsule);
+					}
+				}
+			}
+			if (state.dj != null) {
+      			state.dj.onIntroDone.add(reset);
+			}
+		}
+	}
+
+	function customDisplay(cap:SongMenuItem){
+		if (cap.pixelIcon.animation.curAnim == null || cap.pixelIcon.animation.curAnim.name == 'idle'){
+			if (cap.freeplayData != null && iconStyle == "AppleHair"){
+				switch (cap.freeplayData.songCharacter){
+					case 'garcello':
+						cap.pixelIcon.setCharacter('applehairgarcello');
+					case 'garcellotired':
+						cap.pixelIcon.setCharacter('applehairgarcellotired');
+					case 'garcellodead':
+						cap.pixelIcon.setCharacter('applehairgarcellodead');
+					case 'garcelloghosty':
+						cap.pixelIcon.setCharacter('applehairgarcelloghosty');
+				}
+			}
+		}
+	}
+
+	override function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+		if (Std.isOfType(FlxG.state.subState, FreeplayState))
+		{
+			// Prevent lag in the freeplay menu
+			if (curSelected != FlxG.state.subState.curSelected){
+				curSelected = FlxG.state.subState.curSelected;
+				var curCap = FlxG.state.subState.grpCapsules.members[FlxG.state.subState.curSelected];
+				if (curCap.freeplayData != null && garID.contains(curCap.freeplayData.songCharacter)) customDisplay(curCap);
+			}
+			if (PlayerSettings.player1.controls.UI_LEFT_P || PlayerSettings.player1.controls.UI_RIGHT_P || FlxG.keys.justPressed.Q || FlxG.keys.justPressed.E){
+				new FlxTimer().start(0.1, _ -> {
+					for (capsule in FlxG.state.subState.grpCapsules.members){
+						if (capsule?.freeplayData != null) {
+							if (garID.contains(capsule.freeplayData.songCharacter)){
+								customDisplay(capsule);
+							}
+						}
+					}
+				});
+			}
+		}
+	}
+}

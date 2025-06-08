@@ -1,46 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
-<TextureAtlas imagePath="garcello.png" width="3062" height="3235">
-	<SubTexture name="garcello idle0000" x="301.7" y="1228.5" width="296.09999999999997" height="639.8" frameX="-25.9" frameY="-19.599999999999998" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0001" x="2.0999999999999996" y="594.3" width="308.7" height="623" frameX="-18.2" frameY="-35.699999999999996" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0002" x="1363.6" y="604.8" width="303.09999999999997" height="631.4" frameX="-21.7" frameY="-28" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0003" x="2746.7999999999997" y="621.5999999999999" width="299.59999999999997" height="635.5999999999999" frameX="-23.799999999999997" frameY="-23.799999999999997" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0004" x="2.0999999999999996" y="1219.3999999999999" width="297.5" height="638.4" frameX="-25.2" frameY="-21" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0005" x="599.9" y="1231.3" width="296.09999999999997" height="639.8" frameX="-25.9" frameY="-19.599999999999998" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0006" x="898.0999999999999" y="1236.1999999999998" width="296.09999999999997" height="639.8" frameX="-25.9" frameY="-19.599999999999998" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0007" x="1196.3" y="1238.3" width="296.09999999999997" height="639.8" frameX="-25.9" frameY="-19.599999999999998" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello idle0008" x="301.7" y="1228.5" width="296.09999999999997" height="639.8" frameX="-25.9" frameY="-19.599999999999998" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello right0000" x="1494.5" y="1239.6999999999998" width="371" height="641.9" frameX="-39.199999999999996" frameY="-17.5" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello right0001" x="2.0999999999999996" y="1873.1999999999998" width="660.8" height="641.9" frameX="-39.199999999999996" frameY="-17.5" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello right0002" x="665" y="1880.1999999999998" width="661.5" height="641.9" frameX="-38.5" frameY="-17.5" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello right0003" x="1328.6" y="1886.4999999999998" width="661.5" height="641.9" frameX="-38.5" frameY="-17.5" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello right0004" x="1867.6" y="1242.5" width="360.5" height="641.9" frameX="-38.5" frameY="-17.5" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello right0005" x="2230.2" y="1257.1999999999998" width="367.5" height="641.9" frameX="-38.5" frameY="-17.5" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello right0006" x="2353.3999999999996" y="1917.3" width="661.5" height="641.9" frameX="-38.5" frameY="-17.5" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0000" x="2181.2" y="2561.2999999999997" width="339.5" height="668.5" frameX="-0" frameY="-31.499999999999996" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0001" x="312.9" y="597.0999999999999" width="344.4" height="629.3" frameX="-0" frameY="-30.799999999999997" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0002" x="659.4" y="599.1999999999999" width="348.59999999999997" height="630" frameX="-0" frameY="-30.099999999999998" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0003" x="1010.0999999999999" y="603.4" width="351.4" height="630.6999999999999" frameX="-0" frameY="-29.4" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0004" x="2522.7999999999997" y="2561.2999999999997" width="354.2" height="671.3" frameX="-0" frameY="-28.7" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0005" x="1668.8" y="605.5" width="356.29999999999995" height="632.0999999999999" frameX="-0" frameY="-28" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0006" x="2027.1999999999998" y="607.5999999999999" width="357" height="632.8" frameX="-0.7" frameY="-27.299999999999997" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello left0007" x="2386.2999999999997" y="621.5999999999999" width="358.4" height="633.5" frameX="-0.7" frameY="-26.599999999999998" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0000" x="1815.8" y="2559.2" width="363.29999999999995" height="659.4" frameX="-28" frameY="-0" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0001" x="1087.1" y="2530.5" width="362.59999999999997" height="658.6999999999999" frameX="-27.299999999999997" frameY="-0" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0002" x="1451.8" y="2530.5" width="361.9" height="658.6999999999999" frameX="-26.599999999999998" frameY="-0" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0003" x="724.5" y="2524.2" width="360.5" height="657.3" frameX="-26.599999999999998" frameY="-1.4" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0004" x="361.9" y="2524.2" width="360.5" height="656.5999999999999" frameX="-25.9" frameY="-2.0999999999999996" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0005" x="2599.7999999999997" y="1259.3" width="359.79999999999995" height="655.9" frameX="-25.9" frameY="-2.8" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0006" x="1992.1999999999998" y="1901.1999999999998" width="359.09999999999997" height="655.9" frameX="-25.9" frameY="-2.8" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello up0007" x="2.0999999999999996" y="2517.2" width="357.7" height="655.9" frameX="-25.9" frameY="-2.8" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0000" x="2.0999999999999996" y="2.0999999999999996" width="338.79999999999995" height="590.0999999999999" frameX="-32.199999999999996" frameY="-68.6" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0001" x="343" y="2.0999999999999996" width="340.2" height="592.9" frameX="-31.499999999999996" frameY="-65.1" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0002" x="685.3" y="2.0999999999999996" width="340.9" height="595" frameX="-31.499999999999996" frameY="-62.99999999999999" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0003" x="2408.7" y="2.0999999999999996" width="651" height="617.4" frameX="-31.499999999999996" frameY="-60.9" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0004" x="1028.3" y="2.0999999999999996" width="342.29999999999995" height="599.1999999999999" frameX="-31.499999999999996" frameY="-58.8" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0005" x="1372.6999999999998" y="2.0999999999999996" width="343" height="600.5999999999999" frameX="-31.499999999999996" frameY="-57.4" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0006" x="1717.8" y="2.0999999999999996" width="343" height="601.3" frameX="-31.499999999999996" frameY="-56.699999999999996" frameWidth="700" frameHeight="700"/>
-	<SubTexture name="garcello down0007" x="2062.9" y="2.0999999999999996" width="343.7" height="603.4" frameX="-31.499999999999996" frameY="-55.3" frameWidth="700" frameHeight="700"/>
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="garcello.png"><SubTexture name="garcello idle0000" x="0" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0001" x="1000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0002" x="0" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0003" x="1000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0004" x="2000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0005" x="2000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0006" x="0" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0007" x="1000" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello idle0008" x="0" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello right0000" x="2000" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello right0001" x="3000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello right0002" x="3000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello right0003" x="3000" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello right0004" x="0" y="3000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello right0005" x="1000" y="3000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello right0006" x="2000" y="3000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0000" x="3000" y="3000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0001" x="4000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0002" x="4000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0003" x="4000" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0004" x="4000" y="3000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0005" x="0" y="4000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0006" x="1000" y="4000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello left0007" x="2000" y="4000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0000" x="3000" y="4000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0001" x="4000" y="4000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0002" x="5000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0003" x="5000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0004" x="5000" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0005" x="5000" y="3000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0006" x="5000" y="4000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello up0007" x="0" y="5000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0000" x="1000" y="5000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0001" x="2000" y="5000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0002" x="3000" y="5000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0003" x="4000" y="5000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0004" x="5000" y="5000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0005" x="6000" y="0" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0006" x="6000" y="1000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
+<SubTexture name="garcello down0007" x="6000" y="2000" width="1000" height="1000" frameX="0" frameY="0" frameWidth="1000" frameHeight="1000" />
 </TextureAtlas>

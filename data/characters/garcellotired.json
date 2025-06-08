@@ -1,7 +1,7 @@
 {
 	"version": "1.0.0",
 	"danceEvery": 1,
-	"scale": 1,
+	"scale": 0.7,
 	"offsets": [-2.245, 2.245],
 	"name": "Garcello (Weak)",
 	"flipX": false,

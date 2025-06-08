@@ -1,7 +1,7 @@
 {
 	"version": "1.0.0",
 	"danceEvery": 1,
-	"scale": 1,
+	"scale": 0.7,
 	"offsets": [0, 2.902],
 	"name": "Garcello",
 	"flipX": false,

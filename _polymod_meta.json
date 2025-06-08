@@ -15,7 +15,7 @@
     },
     {
       "name": "AppleHair",
-      "role": "Freeplay icons for the port",
+      "role": "Freeplay icons for the port / Unrestricted Difficulties Usage",
       "url": "https://gamebanana.com/members/1773453"
     },
     {
@@ -45,7 +45,7 @@
     },
     {
       "name": "Comedy Lost",
-      "role": "OG Difficulty Help",
+      "role": "OG Difficulty Help / Notestyle Swap Event",
       "url": "https://gamebanana.com/members/2287198"
     },
     {
@@ -60,7 +60,7 @@
     },
     {
       "name": "Requazar",
-      "role": "RELEASE (PICO MIX)",
+      "role": "RELEASE (PICO MIX) / FADING (PICO MIX)",
       "url": "https://www.youtube.com/watch?v=6jqQc5w6SZM"
     },
     {
@@ -75,6 +75,6 @@
     }
   ],
   "api_version": "0.6.4",
-  "mod_version": "3.2.0",
+  "mod_version": "3.2.1",
   "license": "Apache-2.0"
 }

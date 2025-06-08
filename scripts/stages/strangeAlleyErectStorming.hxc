@@ -65,7 +65,7 @@ class StrangeAlleywayErectStormingStage extends Stage
 		super.onCreate(event);
 
 
-		cinematicsEnabled = ModuleHandler.getModule("Cinematic Events").scriptGet("cinematics");
+		cinematicsEnabled = ModuleHandler.getModule("SEOSOptions").scriptGet("cinematics");
 		rainShader.scale = FlxG.height / 200;
 
 		game = PlayState.instance;
