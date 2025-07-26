@@ -16,7 +16,7 @@ class MinusGarcelloDragonCharacter extends SparrowCharacter {
 	var COLOR_HEALTH_BAR_PURPLE:FlxColor = 0xFF8E40A5;
 
 	function new() {
-		super('MinusGarDragon');
+		super('garcelloDragon');
 	}
 
 	function onCreate(event:ScriptEvent) {

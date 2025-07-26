@@ -1,7 +1,6 @@
 import funkin.modding.module.Module;
 import Std;
 import funkin.ui.options.OptionsState;
-import flixel.util.FlxSave;
 import flixel.FlxG;
 import funkin.play.PlayState;
 import Type;
@@ -14,6 +13,7 @@ import funkin.ui.freeplay.SongMenuItem;
 import funkin.ui.freeplay.FreeplayState;
 import funkin.PlayerSettings;
 import flixel.util.FlxTimer;
+import funkin.save.Save;
 
 class SEOSOptions extends Module
 {
@@ -21,46 +21,29 @@ class SEOSOptions extends Module
 	    * This module is used to handle the Smoke 'Em Out Struggle options, such as:
 	    * - Freeplay Icon Sets
 		* - OG Style (Mimics pre-0.3.0 Funkin' by removing Note Splashes and Hold Note Covers/Splashes)
-		* - Cinematic Events (Top and bottom black borders, Used in Release Pico Mix)
+		* - Cinematic Events (Top and bottom black borders, Used in Release Erect)
 	*/
 
-	public var save = null;
 	public var char:BaseCharacter;
 	public var iconStyle:String = "kirbiro";
-	public var ogstyle:Bool = true;
 	public var cinematics:Bool = true;
 	public var enabled:Bool = true;
 	var garID = ["garcello", "garcellotired", "garcellodead", "garcelloghosty"];
 	var curSelected:Int;
-	public var inOptions:Bool = false;
 
-	function bindSave(){
-		save = new FlxSave();
-		save.bind("seosoptions", "Greeny3483");
-	}
-
-	function closeSave(){
-		if(save != null)save.close();
-		save = null;
-	}
-
-	function new(){
+	public function new(){
 		super("SEOSOptions", 1);
-		bindSave();
 
-		if(save.data.iconStyle == null)
-			save.data.iconStyle = "kirbiro";
-		if(save.data.ogstyle == null)
-			save.data.ogstyle = true;
-		if(save.data.cinematics == null)
-			save.data.cinematics = true;
+		// Initialize mod options with default values if they don't exist
+		if(Save.instance.modOptions["iconStyle"] == null) Save.instance.modOptions["iconStyle"] = "kirbiro";
+		if(Save.instance.modOptions["cinematics"] == null) Save.instance.modOptions["cinematics"] = true;
 
-		iconStyle = save.data.iconStyle;
-		ogstyle = save.data.ogstyle;
-		cinematics = save.data.cinematics;
-
-		closeSave();
+		// Load values from Save.instance.modOptions
+		iconStyle = Save.instance.modOptions["iconStyle"];
+		cinematics = Save.instance.modOptions["cinematics"];
 	}
+
+	public var inOptions:Bool = false;
 
 	override function onStateChangeEnd(event){
 		super.onStateChangeEnd(event);
@@ -68,31 +51,22 @@ class SEOSOptions extends Module
 		if(Std.isOfType(event.targetState, OptionsState)){
 			var prefs = event.targetState.optionsCodex.pages.get("preferences");
 			inOptions = true;
-			bindSave();
 
-            prefs.items.createItem(120, 120 * prefs.items.length + 30, "Smoke Em Out Struggle:", "bold", () -> false); // Separate options from the default preferences.
-			prefs.preferenceDesc.push(""); // Prevent null errors.
-
-			prefs.createPrefItemEnum("Freeplay Icon Set", "Switches between different alternative freeplay icon sets. \n Applies to: Garcello.", [
+			prefs.createPrefItemEnum("Freeplay Icon Set", "Switches between different alternative freeplay icon sets for Garcello.", [
 				"kirbiro" => "kirbiro",
 				"AppleHair" => "AppleHair"
 			], function(key:String, value:String) {
-				save.data.iconStyle = value;
+				Save.instance.modOptions["iconStyle"] = value;
 				iconStyle = value;
-			}, save.data.iconStyle);
+				Save.instance.flush();
+			}, Save.instance.modOptions["iconStyle"]);
 
-			prefs.createPrefItemCheckbox("OG Style", "Disables the use of Note Splashes and Hold Note Covers/Splashes in certain songs. \nApplies to: Week G (OG)", function(value) {
-				save.data.ogstyle = value;
-				ogstyle = value;
-			}, save.data.ogstyle);
-
-			prefs.createPrefItemCheckbox("Cinematic Events", "Toggles the use of custom cinematic events. \n Used in: Release (Pico Mix)", function(value) {
-				save.data.cinematics = value;
+			prefs.createPrefItemCheckbox("Cinematics", "Adds a letterboxing effect during certain sections of songs. \nPrimarily used in Release Erect.", function(value) {
+				Save.instance.modOptions["cinematics"] = value;
 				cinematics = value;
-			}, save.data.cinematics);
-
-		}else if(inOptions)
-			closeSave();
+				Save.instance.flush();
+			}, Save.instance.modOptions["cinematics"]);
+		}
 	}
 
 	override function onSubStateOpenEnd(event) {

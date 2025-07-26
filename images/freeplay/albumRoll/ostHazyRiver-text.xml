@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <TextureAtlas imagePath="ostHazyRiver-text.png">
-<SubTexture name="idle0000000" x="0" y="0" width="295" height="139" frameX="0" frameY="-3" frameWidth="297" frameHeight="142" />
-<SubTexture name="switch00000000" x="0" y="139" width="293" height="139" frameX="-2" frameY="-3" frameWidth="297" frameHeight="142" />
-<SubTexture name="switch00010000" x="0" y="139" width="293" height="139" frameX="-2" frameY="-3" frameWidth="297" frameHeight="142" />
-<SubTexture name="switch00020000" x="0" y="139" width="293" height="139" frameX="-2" frameY="-3" frameWidth="297" frameHeight="142" />
-<SubTexture name="switch00030000" x="0" y="139" width="293" height="139" frameX="-2" frameY="-3" frameWidth="297" frameHeight="142" />
+<SubTexture name="idle0000000" x="307" y="0" width="318" height="149" frameX="0" frameY="0" frameWidth="375" frameHeight="200" />
+<SubTexture name="switch0000000" x="0" y="0" width="307" height="153" frameX="0" frameY="-1" frameWidth="375" frameHeight="200" />
+<SubTexture name="switch0000001" x="0" y="0" width="307" height="153" frameX="0" frameY="-1" frameWidth="375" frameHeight="200" />
+<SubTexture name="switch0000002" x="0" y="0" width="307" height="153" frameX="0" frameY="-1" frameWidth="375" frameHeight="200" />
+<SubTexture name="switch0000003" x="0" y="0" width="307" height="153" frameX="0" frameY="-1" frameWidth="375" frameHeight="200" />
 </TextureAtlas>

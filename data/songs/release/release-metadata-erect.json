@@ -1,0 +1,32 @@
+{
+  "version": "2.2.2",
+  "songName": "Release Erect",
+  "artist": "InterstellarNuggo",
+  "charter": "Greeny3483",
+  "playData": {
+    "album": "seosErectOST",
+    "songVariations": ["erect"],
+    "difficulties": [
+      "erect",
+      "nightmare"
+    ],
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "garcellodead",
+      "instrumental": "erect",
+      "altInstrumentals": []
+    },
+    "stage": "strangeAlleyErectStorming",
+    "noteStyle": "funkin",
+    "ratings": {"erect": 7, "nightmare": 9}
+  },
+  "generatedBy": "Psych Engine v1.0.4 - Chart Editor V-Slice Exporter",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "bpm": 165
+    }
+  ]
+}

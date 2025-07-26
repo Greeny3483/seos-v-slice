@@ -1,0 +1,18 @@
+[
+{
+    "op": "add",
+    "path": "/variations/-",
+    "value": {
+        "id": "og",
+        "x": 0
+    }
+},
+{
+    "op": "add",
+    "path": "/variations/-",
+    "value": {
+        "id": "minus",
+        "x": 0
+    }
+}
+]

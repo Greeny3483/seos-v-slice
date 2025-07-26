@@ -14,10 +14,10 @@
 }
     },
     {
-      "t": 3562.5,
+      "t": 3645.83333333333,
       "e": "Change Character",
       "v": {
-	"char": "MinusGarDragon",
+	"char": "garcelloDragon",
 	"target": "dad"
 }
     },
@@ -5203,5 +5203,5 @@
     ],
     "hard": [    ]
   },
-  "generatedBy": "Friday Night Funkin' - v0.6.4"
+  "generatedBy": "Friday Night Funkin' - v0.7.3"
 }

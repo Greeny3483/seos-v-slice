@@ -122,11 +122,6 @@ class ReleaseSong extends Song {
       PlayState.instance.healthBar.createFilledBar(COLOR_HEALTH_BAR_PURPLE, Constants.COLOR_HEALTH_BAR_GREEN);
     }
 
-    var isOg = ModuleHandler.getModule('SEOSOptions').scriptGet('ogstyle');
-    if (PlayState.instance.currentVariation == 'og' && !isOg) {
-      ModuleHandler.getModule('SwappingNotestyles').scriptCall('swapStrumlines', ['funkin']);
-    }
-
     
   }
 

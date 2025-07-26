@@ -66,6 +66,7 @@ class StrangeAlleywayErectStormingStage extends Stage
 
 
 		cinematicsEnabled = ModuleHandler.getModule("SEOSOptions").scriptGet("cinematics");
+		mobile = FlxG.onMobile;
 		rainShader.scale = FlxG.height / 200;
 
 		game = PlayState.instance;
@@ -81,11 +82,11 @@ class StrangeAlleywayErectStormingStage extends Stage
         rainShaderFilter = new ShaderFilter(rainShader);
 		FlxG.camera.filters = [rainShaderFilter];
 
-		topBorder = new FlxSprite(0, 0).makeGraphic(FlxG.width, 50, 0xFF000000);
+		topBorder = new FlxSprite(0, -50).makeGraphic(FlxG.width, 50, 0xFF000000);
 		topBorder.scale.set(5, 5);
 		topBorder.cameras = [game.camCutscene];
 		topBorder.zIndex = 50000;
-		bottomBorder = new FlxSprite(0, FlxG.height - 50).makeGraphic(FlxG.width, 50, 0xFF000000);
+		bottomBorder = new FlxSprite(0, FlxG.height - 0).makeGraphic(FlxG.width, 50, 0xFF000000);
 		bottomBorder.scale.set(5, 5);
 		bottomBorder.zIndex = 50000;
 		bottomBorder.cameras = [game.camCutscene];
@@ -155,17 +156,17 @@ class StrangeAlleywayErectStormingStage extends Stage
 
 	function doCinematics():Void {
 
-		if (!cinematicsEnabled) return;
+		if (!cinematicsEnabled || mobile) return;
 
 		topBorder.visible = true;
 		bottomBorder.visible = true;
 		
 		if (Preferences.downscroll) {
-			game.opponentStrumline.y = opponentStrumlineDefaultYPos + 400;
-			game.playerStrumline.y = playerStrumlineDefaultYPos + 400;
+			game.opponentStrumline.y = opponentStrumlineDefaultYPos + 350;
+			game.playerStrumline.y = playerStrumlineDefaultYPos + 350;
 		} else {
-			game.opponentStrumline.y = opponentStrumlineDefaultYPos + 100;
-			game.playerStrumline.y = playerStrumlineDefaultYPos + 100;
+			game.opponentStrumline.y = opponentStrumlineDefaultYPos + 50;
+			game.playerStrumline.y = playerStrumlineDefaultYPos + 50;
 		}
 
 		game.scoreText.visible = false;
@@ -175,6 +176,8 @@ class StrangeAlleywayErectStormingStage extends Stage
 		game.iconP2.visible = false;
 	}
 	function destroyCinematics():Void {
+		if (!cinematicsEnabled || mobile) return;
+
 		topBorder.visible = false;
 		bottomBorder.visible = false;
 		
@@ -247,21 +250,31 @@ class StrangeAlleywayErectStormingStage extends Stage
 	{
 		super.onStepHit(event);
 
-		if (event.step == 831 && PlayState.instance.currentSong.id == "release") {
-	        forceLightningStrike();
+		/* ERECT MIXES
+		--------------------------------*/
+
+		/*if (event.step == 4 && PlayState.instance.currentSong.id == "release" && PlayState.instance.currentVariation == "erect") {
 			doCinematics();
-
-			topBorder.visible = true;
-			bottomBorder.visible = true;
-
+		}*/ // Testing
+		
+		if (event.step == 287 || event.step == 292 || event.step == 296 || event.step == 300 || event.step == event.step == 303 || event.step == 879 && PlayState.instance.currentSong.id == "release" && PlayState.instance.currentVariation == "erect") {
+			FlxG.camera.flash(0xFFFFFFFF, 0.2);
 		}
-
-		if (event.step == 970 && cinematicsEnabled && PlayState.instance.currentSong.id == "release") { // Use the boolean variable
-	        forceLightningStrike();
+		if (event.step == 398 && PlayState.instance.currentSong.id == "release" && PlayState.instance.currentVariation == "erect") {
+			forceLightningStrike();
+			doCinematics();
+		}
+		if (event.step == 465 && PlayState.instance.currentSong.id == "release" && PlayState.instance.currentVariation == "erect") {
+			forceLightningStrike();
 			destroyCinematics();
-
-			topBorder.visible = false;
-			bottomBorder.visible = false;
+		}
+		if (event.step == 1103 && PlayState.instance.currentSong.id == "release" && PlayState.instance.currentVariation == "erect") {
+			forceLightningStrike();
+			doCinematics();
+		}
+		if (event.step == 1215 && PlayState.instance.currentSong.id == "release" && PlayState.instance.currentVariation == "erect") {
+			forceLightningStrike();
+			destroyCinematics();
 		}
 	}
 	override function onSongRetry(event:ScriptEvent):Void {

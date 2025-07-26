@@ -15,7 +15,7 @@ import funkin.modding.module.ModuleHandler;
 
 class SEOSSplashText extends Module
 {
-  public var garVNUM:String = '3.2.1-prerelease'; // Add "Modified Build" or "-prerelease" if it is a GitHub commit that hasn't been marked as a main release yet.
+  public var garVNUM:String = '3.3.0'; // Add "Modified Build" or "-prerelease" if it is a GitHub commit that hasn't been marked as a main release yet.
 
   public function new()
   {
