@@ -1,14 +1,11 @@
 import funkin.util.Constants;
 import funkin.modding.module.Module;
 
-class OGDiffPush extends Module
+class DiffFix extends Module
 {
-
-  //var game = PlayState.instance;
-
   public function new()
   {
-    super('OGDiffPush');
+    super('DiffFix');
   }
   override function onCreate(event:SubStateScriptEvent)
   {
