@@ -1,3 +1,4 @@
+![Failed to load image..](dump/logoforuhh.png)
 # ***BF and GF notice a strange glow coming from an alleyway...***
 
 Face off against **Garcello** once again in a complete restoration of the original **Smoke 'Em Out Struggle** week!
