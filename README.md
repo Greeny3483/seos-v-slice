@@ -1,37 +1,40 @@
-![Failed to load image. Womp.](./dump/logoforuhh.png)
-## Smoke 'Em Out Struggle V-Slice Port
+# ***BF and GF notice a strange glow coming from an alleyway...***
 
-**Smoke 'Em Out Struggle V-Slice Port** is a mod for the Friday Night Funkin' base game (Version 0.6.0+), that adds the original songs, and more.
+Face off against **Garcello** once again in a complete restoration of the original **Smoke 'Em Out Struggle** week!
 
-### 🔥 Features:
-- 🎬 Cutscenes & Dialogue
-- 🕹️ Easy, Normal, and Hard difficulties
-- 🧍 Scripted events for all songs!:
-  - Nerves: Cough
-  - Release: “Tight Bars”
-  - Fading: Fade with smirk
-- 🎵 Custom album covers
-- 🎶 Extra songs (best experienced on **Hard** mode)
-- 💬 Parity elements with FNF-v0.3.0+
-- 🌟 NEW Pico mixes of your favorite tracks!
-- 🚬 "OG" tracks from the original Smoke 'Em Out Struggle!
+---
 
-### 🎨 Credits:
-- **kirbiro** / **Applehair** – Freeplay Icons  
-- **Keynax** – Vocal Splitting  
-- **Flezard** – Sprite fixes  
-- **Plantgamer09** – Nerves (Pico Mix)  
-- **Pink Lemonade** – Headache (Pico Mix)  
-- **Comedy Lost** – Difficulty image fix
+### **Smoke 'Em Out Struggle / VS Garcello V-Slice Port**
 
-### ✅ Recommended Mods:
+**FULL VERSION Includes:**
+
+- *Cutscenes*
+- *Dialogue*
+- *Easy, Normal, and Hard* **Difficulties**
+- *1:1 ports of events & custom animations*
+- *Official* **Hazy River** *Album Covers*
+- *Additional songs and difficulties*
+
+> **_Note:_** *Additional songs do not guarantee full difficulty support. All songs are best played on **HARD** mode.*
+
+---
+
+### **Installation Instructions**
+
+- Drag and drop `garcello v-slice` into your base game **mods** folder.
+- If you do not have a mods folder, create one.
+- Extract the mod to minimize issues.
+
+---
+
+### **My Other Mods:**
+
 - [VS Annie OC Week V-Slice Port](https://gamebanana.com/mods/581764)
+- [Versus Sonic.Exe V-Slice Port](https://gamebanana.com/mods/600193)
 
-### 📦 Installation:
-1. Drop `garcello v-slice.zip` into your base game's `mods` folder (create one if it doesn't exist).
-2. Extraction is optional.
+---
 
-#### 🎭 For Alternate Icons (OBSOLETE):
-- Extract the mod, then drop the `garcello v-slice` **icons folder** into the extracted `garcello v-slice` directory.
+### **Original Mods:**
 
-Enjoy the recreation of Smoke 'Em Out Struggle
+- [Smoke 'Em Out Struggle [FULL WEEK] | VS Garcello](https://gamebanana.com/mods/166531)
+- [Hazy River](https://gamebanana.com/mods/374660)
