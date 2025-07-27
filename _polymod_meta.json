@@ -62,19 +62,9 @@
       "name": "Requazar",
       "role": "RELEASE (PICO MIX) / FADING (PICO MIX)",
       "url": "https://www.youtube.com/watch?v=6jqQc5w6SZM"
-    },
-    {
-      "name": "MayoOddToSee",
-      "role": "Change Character Event",
-      "url": "https://github.com/mayo78/vslicescripts/tree/main/Change%20Character"
-    },
-    {
-      "name": "DaWaterMalone",
-      "role": "Lyrics Event",
-      "url": "https://gamebanana.com/posts/12192849"
     }
   ],
   "api_version": "0.7.3",
-  "mod_version": "3.3.0",
+  "mod_version": "3.3.1",
   "license": "Apache-2.0"
 }

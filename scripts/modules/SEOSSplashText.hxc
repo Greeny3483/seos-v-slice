@@ -7,7 +7,7 @@ import flixel.text.FlxTextBorderStyle;
 import funkin.ui.mainmenu.MainMenuState;
 import funkin.play.PlayState;
 import funkin.Paths;
-import funkin.api.newgrounds.NewgroundsClient;
+//import funkin.api.newgrounds.NewgroundsClient; <- This turns mobile into shit so it's gotta go
 import funkin.util.ReflectUtil;
 import funkin.util.Constants;
 import funkin.modding.module.Module;
@@ -15,7 +15,7 @@ import funkin.modding.module.ModuleHandler;
 
 class SEOSSplashText extends Module
 {
-  public var garVNUM:String = '3.3.0'; // Add "Modified Build" or "-prerelease" if it is a GitHub commit that hasn't been marked as a main release yet.
+  public var garVNUM:String = '3.3.1'; // Add "Modified Build" or "-prerelease" if it is a GitHub commit that hasn't been marked as a main release yet.
 
   public function new()
   {

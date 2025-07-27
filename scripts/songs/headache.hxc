@@ -144,14 +144,21 @@ class HeadacheSong extends Song {
   override function onCreate(event:ScriptEvent):Void
   {
     super.onCreate(event);
+    //PlayState.instance.healthBar.createFilledBar(COLOR_HEALTH_BAR_PURPLE, Constants.COLOR_HEALTH_BAR_GREEN); // Purple color in hexadecimal
+
+    discordRPC();
+
+    hasPlayedCutscene = false;
+
+  }
+
+  function discordRPC():Void {
+    if (FlxG.onMobile) return;
+
     var timeStamp = Date.now().getTime();
 
     PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/images/freeplay/albumRoll/" + PlayState.instance.currentChart.album + ".png?raw=true?t=" + timeStamp;
     PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/dump/icons/" + PlayState.instance.currentChart.characters.opponent + ".png?raw=true?t=" + timeStamp;
-    //PlayState.instance.healthBar.createFilledBar(COLOR_HEALTH_BAR_PURPLE, Constants.COLOR_HEALTH_BAR_GREEN); // Purple color in hexadecimal
-
-    hasPlayedCutscene = false;
-
   }
 
   public override function onDialogueEnd() {

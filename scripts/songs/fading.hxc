@@ -75,12 +75,20 @@ class FadingSong extends Song {
   {
     super.onCreate(event);
 
-    var timeStamp = Date.now().getTime();
-    PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/images/freeplay/albumRoll/" + PlayState.instance.currentChart.album + ".png?raw=true?t=" + timeStamp;
-    PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/dump/icons/" + PlayState.instance.currentChart.characters.opponent + ".png?raw=true?t=" + timeStamp;
+    discordRPC();
 
     hasPlayedCutscene = false;
   }
+
+  function discordRPC():Void {
+    if (FlxG.onMobile) return;
+
+    var timeStamp = Date.now().getTime();
+
+    PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/images/freeplay/albumRoll/" + PlayState.instance.currentChart.album + ".png?raw=true?t=" + timeStamp;
+    PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/Greeny3483/seos-v-slice/refs/heads/main/dump/icons/" + PlayState.instance.currentChart.characters.opponent + ".png?raw=true?t=" + timeStamp;
+  }
+
 
 	function onBeatHit(event:SongTimeScriptEvent)
   {

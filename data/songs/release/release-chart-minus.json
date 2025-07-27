@@ -8,16 +8,16 @@
       "t": 1468.75,
       "e": "PlayAnimation",
       "v": {
-	"anim": "Transform",
+	"target": "dad",
 	"force": false,
-	"target": "dad"
+	"anim": "Transform"
 }
     },
     {
       "t": 3645.83333333333,
       "e": "Change Character",
       "v": {
-	"char": "garcelloDragon",
+	"char": "MinusGarDragon",
 	"target": "dad"
 }
     },
@@ -186,9 +186,9 @@
       "t": 104750,
       "e": "PlayAnimation",
       "v": {
-	"target": "dad",
+	"force": true,
 	"anim": "tightbars",
-	"force": true
+	"target": "dad"
 }
     },
     {
@@ -287,9 +287,9 @@
       "t": 140437.5,
       "e": "PlayAnimation",
       "v": {
-	"target": "dad",
+	"force": false,
 	"anim": "Dip",
-	"force": false
+	"target": "dad"
 }
     }
   ],

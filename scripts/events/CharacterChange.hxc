@@ -12,7 +12,7 @@ import funkin.play.components.HealthIcon;
  * Feel free to use whenever with proper credits
 */
 
-class ChangeCharacterEvent extends SongEvent {
+class CharacterChange extends SongEvent {
 
 	public function new() {
 		super('Change Character');
@@ -22,13 +22,13 @@ class ChangeCharacterEvent extends SongEvent {
 		if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
 		if (PlayState.instance.isMinimalMode) return;
 
-        var charData = CharacterDataParser.parseCharacterData(data.value.char.toLowerCase());
+        var charData = CharacterDataParser.parseCharacterData(data.value.char);
         CharacterDataParser.characterCache.h[CharacterDataParser.characterCache.h.length+1] = charData;
 
 		switch(data.value.target) {
 			case 'bf':
                 PlayState.instance.currentStage.getBoyfriend().destroy();
-				var boyfriend = CharacterDataParser.fetchCharacter(data.value.char.toLowerCase());
+				var boyfriend = CharacterDataParser.fetchCharacter(data.value.char);
                 if (boyfriend != null) {
                     boyfriend.set_characterType(CharacterType.BF);
                     boyfriend.initHealthIcon(false);
@@ -36,14 +36,14 @@ class ChangeCharacterEvent extends SongEvent {
                 }
 			case 'gf':
 				PlayState.instance.currentStage.getGirlfriend().destroy();
-				var girlfriend = CharacterDataParser.fetchCharacter(data.value.char.toLowerCase());
+				var girlfriend = CharacterDataParser.fetchCharacter(data.value.char);
                 if (girlfriend != null) {
                     girlfriend.set_characterType(CharacterType.GF);
                     PlayState.instance.currentStage.addCharacter(girlfriend, CharacterType.GF);
                 }
 			case 'dad':
 				PlayState.instance.currentStage.getDad().destroy();
-				var dad = CharacterDataParser.fetchCharacter(data.value.char.toLowerCase());
+				var dad = CharacterDataParser.fetchCharacter(data.value.char);
                 if (dad != null) {
                     dad.set_characterType(CharacterType.DAD);
                     dad.initHealthIcon(true);
@@ -55,7 +55,6 @@ class ChangeCharacterEvent extends SongEvent {
 	}
 
 	public function getEventSchema() {
-		// Build character dropdown from available characters
 		var charMap = ["Boyfriend" => "bf"];
 		for (char in CharacterDataParser.listCharacterIds()) {
 			var charData = CharacterDataParser.fetchCharacterData(char);
